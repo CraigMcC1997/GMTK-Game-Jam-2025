@@ -3,14 +3,15 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    RoundManager roundManager; // Reference to the RoundManager to get max enemies
     Rigidbody2D rb;
-    public float moveSpeed;
+    public float moveSpeed = 10.0f;
     float translationX, translationY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        moveSpeed = 10.0f;
+        roundManager = FindFirstObjectByType<RoundManager>().GetComponent<RoundManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -42,12 +43,22 @@ public class PlayerController : MonoBehaviour
             if (screenPos.x < Screen.width)
                 translationX = moveSpeed;
         }
-        
+
         // Make it move it per second instead of per frame
         translationX *= Time.deltaTime;
         translationY *= Time.deltaTime;
 
         // Move translation along the object's y-axis
         transform.Translate(translationX, translationY, 0);
+    }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Player collided with an enemy!");
+            Destroy(collision.gameObject); // Destroy the enemy on collision
+            roundManager.EnemyKilled(); 
+        }
     }
 }

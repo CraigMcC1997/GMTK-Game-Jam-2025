@@ -397,6 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5fce88a9437c21d88210bfbbc9633be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerHealth: 100
+  PlayerDamage: 10
+  PlayerSpeed: 10
 --- !u!1 &1137025891
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,11 +693,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1388843215442454244, guid: b30dda9db9cf2f451bde72bcb89bff24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 1388843215442454244, guid: b30dda9db9cf2f451bde72bcb89bff24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.49
       objectReference: {fileID: 0}
     - target: {fileID: 1388843215442454244, guid: b30dda9db9cf2f451bde72bcb89bff24, type: 3}
       propertyPath: m_LocalPosition.z
@@ -730,6 +733,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2238861624954062471, guid: b30dda9db9cf2f451bde72bcb89bff24, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238861624954062471, guid: b30dda9db9cf2f451bde72bcb89bff24, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4790386860106070961, guid: b30dda9db9cf2f451bde72bcb89bff24, type: 3}

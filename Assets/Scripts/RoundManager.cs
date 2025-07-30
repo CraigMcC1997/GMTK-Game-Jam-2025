@@ -8,6 +8,7 @@ public class RoundManager : MonoBehaviour
     int currentRound = 1;
     int currentEnemiesSpawned = 0;
     int maxEnemiesPerRound = 3; // Example value, adjust as needed
+    int currentEnemiesKilled = 0; // Track how many enemies have been killed in this round
 
     public TMP_Text roundText; // Reference to a UI Text element to display the current round
 
@@ -28,13 +29,12 @@ public class RoundManager : MonoBehaviour
     {
         //TODO: Update this to allow player to choose an upgrade first and only when they choose to continue, then increment the round
         currentRound++;
+        currentEnemiesSpawned = 0; // Reset for the next round
         // Logic to handle round progression, such as increasing difficulty or changing enemy types
         if (roundText != null)
         {
             roundText.text = "Round: " + currentRound;
         }
-
-        SceneManager.LoadScene("UpgradesScreen");
     }
 
     public int GetCurrentRound()
@@ -45,13 +45,21 @@ public class RoundManager : MonoBehaviour
     public void EnemySpawned()
     {
         currentEnemiesSpawned++;
-        // Logic to handle when an enemy is spawned, such as updating UI or checking for round completion
-        if (currentEnemiesSpawned >= GetMaxEnemies())
+    }
+
+    public void EnemyKilled()
+    {
+        Debug.Log("Player collided with an enemy!");
+        currentEnemiesKilled++;
+
+        if (currentEnemiesKilled >= currentEnemiesSpawned)
         {
-            NextRound();
-            currentEnemiesSpawned = 0; // Reset for the next round
+            SceneManager.LoadScene("UpgradesScreen");
         }
     }
 
-
+    public bool GetMaxEnemiesReached()
+    {
+        return currentEnemiesSpawned >= GetMaxEnemies();
+    }
 }

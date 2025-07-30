@@ -18,17 +18,20 @@ public class EnemySpawner : MonoBehaviour
     
     void spawner()
     {
-        float spawnX = UnityEngine.Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
-        float spawnY = UnityEngine.Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
-        Vector3 position = new Vector3(spawnX, spawnY, 0.0f);
-
-        // TODO: FIX !! This slows down the creation of enemies, needs to be on a fixed timer instead
-        float randomiser = UnityEngine.Random.Range(0, 1000);
-
-        if (randomiser < 3) // Adjust the spawn rate as needed
+        if (!roundManager.GetMaxEnemiesReached())
         {
-            roundManager.EnemySpawned();
-            Instantiate(enemyPrefab, position, Quaternion.identity);
+            float spawnX = UnityEngine.Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
+            float spawnY = UnityEngine.Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
+            Vector3 position = new Vector3(spawnX, spawnY, 0.0f);
+
+            // TODO: FIX !! This slows down the creation of enemies, needs to be on a fixed timer instead
+            float randomiser = UnityEngine.Random.Range(0, 1000);
+
+            if (randomiser < 3) // Adjust the spawn rate as needed
+            {
+                roundManager.EnemySpawned();
+                Instantiate(enemyPrefab, position, Quaternion.identity);
+            }
         }
     }
 }
