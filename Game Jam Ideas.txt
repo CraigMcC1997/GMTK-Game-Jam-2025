@@ -1,0 +1,20 @@
+Game Jam Ideas:
+
+Theme: LOOP
+
+!! infinite enemy spawner
+- as time goes on the enemies get stronger + do more damage
+- round based, option to quit after each round
+	- give up = keep all coins, but give up chance for more coins
+	- Keep going = chance of getting more coins for completing this next round, but dying means player only gets portion of overall 
+- when player dies they are presented with 3 upgrades, health | damage | speed
+- then the game starts again with the new stats, player plays until death in which case game loops forever
+
+stats in pause menu
+
+Pause:
+	Continue
+	< Stats list >
+	Quit
+
+
