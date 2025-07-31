@@ -1,0 +1,65 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class EnemyManager : MonoBehaviour
+{
+    int enemyHealth = 30; // Example value, can be adjusted
+    int enemyDamage = 10;  
+
+    public Slider healthBar;
+
+    PlayerManager player;
+    RoundManager roundManager;
+
+    void Start()
+    {
+        player = FindFirstObjectByType<PlayerManager>().GetComponent<PlayerManager>();
+        roundManager = FindFirstObjectByType<RoundManager>().GetComponent<RoundManager>();
+        healthBar.maxValue = enemyHealth;
+        UpdateHealthBar();
+    }
+
+    void UpdateHealthBar()
+    {
+        healthBar.value = enemyHealth;
+    }
+
+    public int EnemyDoesDamage()
+    {
+        return enemyDamage;
+    }
+
+    public void EnemyTakesDamage(int damage)
+    {
+        enemyHealth -= damage;
+        UpdateHealthBar();
+        checkForDeath();
+    }
+    
+    void checkForDeath()
+    {
+        if (enemyHealth <= 0)
+        {
+            roundManager.EnemyKilled(); 
+            Destroy(gameObject); // Destroy the enemy object
+        }
+    }
+
+    public void moveEnemyAway()
+    {
+        Vector2 newPosition = new Vector2(Random.Range(-8f, 8f), Random.Range(-4f, 4f));
+        transform.position = newPosition; // Move the enemy to a random position within bounds
+
+        // when the enemy collides with the player, it will deal damage to itself
+        EnemyTakesDamage(enemyDamage); 
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            EnemyTakesDamage(player.GetPlayerDamage());
+            Destroy(collision.gameObject);
+        }
+    }
+}

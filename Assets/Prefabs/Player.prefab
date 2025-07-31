@@ -132,6 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d164cf6cee37596082041783dff97ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 4475956492962909399, guid: 6325c8d3f25170f9eb6ca1a66239237f, type: 3}
+  firePoint: {fileID: 6786691207326984642}
 --- !u!1 &2238861624954062471
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +323,8 @@ MonoBehaviour:
   healthText: {fileID: 0}
   damageText: {fileID: 0}
   speedText: {fileID: 0}
+  healthBar: {fileID: 0}
+  enemyOBJ: {fileID: 335341453264053200, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
 --- !u!1001 &7672757850152850198
 PrefabInstance:
   m_ObjectHideFlags: 0

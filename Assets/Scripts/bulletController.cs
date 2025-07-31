@@ -6,12 +6,10 @@ public class bulletController : MonoBehaviour
 
     public float force = 5.0f;
 
-    RoundManager roundManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-        roundManager = FindFirstObjectByType<RoundManager>().GetComponent<RoundManager>();
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 dir = mousePos - transform.position;
@@ -21,13 +19,9 @@ public class bulletController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 90.0f);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void Update()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(collision.gameObject);
-            roundManager.EnemyKilled(); 
-            Destroy(gameObject);
-        }
+        // Destroy the bullet after 10 seconds to prevent memory leaks
+        Destroy(gameObject, 10.0f);
     }
 }

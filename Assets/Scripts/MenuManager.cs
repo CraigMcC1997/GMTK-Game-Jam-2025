@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     int HealthModifier = 10;
     int DamageModifier = 5;
-    int SpeedModifier = 2;
+    int SpeedModifier = 3;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,9 +25,15 @@ public class MenuManager : MonoBehaviour
 
     public void UpdateHealth()
     {
+        
         int health = PlayerPrefs.GetInt("PlayerHealth", 100); // Default to 100 if not set
         health += HealthModifier;
         PlayerPrefs.SetInt("PlayerHealth", health); // Save the updated health
+
+        if (health > PlayerPrefs.GetInt("HighestHealth", 100))
+        {
+            PlayerPrefs.SetInt("HighestHealth", health); // Update highest health if current is greater
+        }
         ReturnToGame();
     }
 
@@ -41,7 +47,7 @@ public class MenuManager : MonoBehaviour
     
     public void UpdateSpeed()
     {
-        int speed = PlayerPrefs.GetInt("PlayerSpeed", 10); // Default to 10 if not set
+        int speed = PlayerPrefs.GetInt("PlayerSpeed", 5); // Default to 5 if not set
         speed += SpeedModifier;
         PlayerPrefs.SetInt("PlayerSpeed", speed);
         ReturnToGame();

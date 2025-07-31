@@ -1,0 +1,23 @@
+Log
+
+Day 1:
+Started 3 hours late
+Choosing the game
+Setting up the scene
+Having a moving player
+Adding enemies that chase the player
+Added 2 scenes; the game and the upgrade window
+
+Day 2:
+Fixed round counters to allow new rounds to start only after an upgrade is chosen 
+Added all UI elements
+Added a healthbar for the first time
+Updated the UI for the upgrades page
+Added player and enemy health
+Gave player a gun to shoot
+Changed from insta death for enemies to taking damage when shot
+Added a start and end screen to clean up the game a little bit
+Game now ends when their health reaches 0
+Game over shows the players highest stats
+Added a controls and instructions page for ease of play and to keep everything inside the game itself
+

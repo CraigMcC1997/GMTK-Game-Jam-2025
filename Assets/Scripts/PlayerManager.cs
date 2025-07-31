@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -11,25 +12,32 @@ public class PlayerManager : MonoBehaviour
     public int PlayerDamage;
     public int PlayerSpeed;
 
-    public int EnemyDamage = 10; // Example value for enemy damage, adjust as needed
-
     public TMP_Text healthText;
     public TMP_Text damageText;
     public TMP_Text speedText;
 
-    RoundManager roundManager; // Reference to the RoundManager to get max enemies
+    RoundManager roundManager;
+
+    public Slider healthBar;
+
+    public GameObject enemyOBJ;
+    EnemyManager enemy;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         roundManager = FindFirstObjectByType<RoundManager>().GetComponent<RoundManager>();
+        enemy = enemyOBJ.GetComponent<EnemyManager>();
         loadStats(); // Load player stats from PlayerPrefs
+        healthBar.maxValue = STARTING_HEALTH; // Set the maximum value of the health bar
+        healthBar.value = PlayerHealth;
     }
 
     public void UpdateUI()
     {
-        healthText.text = "Health: " + PlayerHealth.ToString();
+        healthText.text = PlayerHealth.ToString();
+        healthBar.value = PlayerHealth; // Update health bar
         damageText.text = "Damage: " + PlayerDamage.ToString();
         speedText.text = "Speed: " + PlayerSpeed.ToString();
     }
@@ -39,6 +47,7 @@ public class PlayerManager : MonoBehaviour
         PlayerHealth = PlayerPrefs.GetInt("PlayerHealth", STARTING_HEALTH); // Default to 100 if not set
         PlayerDamage = PlayerPrefs.GetInt("PlayerDamage", STARTING_DAMAGE); // Default to 10 if not set
         PlayerSpeed = PlayerPrefs.GetInt("PlayerSpeed", STARTING_SPEED); // Default to 5 if not set
+        healthBar.value = PlayerHealth;
 
         UpdateUI(); // Update the UI with loaded stats
     }
@@ -57,21 +66,27 @@ public class PlayerManager : MonoBehaviour
         PlayerPrefs.SetInt("PlayerSpeed", STARTING_SPEED);
     }
 
+    public int GetPlayerDamage()
+    {
+        return PlayerDamage;
+    }
+
+    public int getPlayerSpeed()
+    {
+        return PlayerSpeed;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            PlayerHealth -= EnemyDamage; // Reduce player health by enemy damage
+            PlayerHealth -= enemy.EnemyDoesDamage(); // Reduce player health by enemy damage
             UpdateUI(); // Update the UI after taking damage
-            
-            Destroy(collision.gameObject); // Destroy the enemy on collision
-            roundManager.EnemyKilled(); 
-        }
-    }
+            Destroy(collision.gameObject); // Destroy the enemy object on collision
+            roundManager.EnemyKilled(); // Notify the round manager that an enemy was spawned
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            // TODO: Move the enemy away from the player instead of destroying it
+            //enemy.moveEnemyAway();
+        }
     }
 }

@@ -8,10 +8,16 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10.0f;
     float translationX, translationY;
 
+    PlayerManager playerManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerManager = FindFirstObjectByType<PlayerManager>().GetComponent<PlayerManager>();
+        moveSpeed = playerManager.getPlayerSpeed();
+
+        Debug.Log("Player Speed: " + moveSpeed);
     }
 
     void playerMovement()
