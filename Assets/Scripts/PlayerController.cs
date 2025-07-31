@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    RoundManager roundManager; // Reference to the RoundManager to get max enemies
+    
     Rigidbody2D rb;
     public float moveSpeed = 10.0f;
     float translationX, translationY;
@@ -11,12 +11,10 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        roundManager = FindFirstObjectByType<RoundManager>().GetComponent<RoundManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void playerMovement()
     {
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
 
@@ -35,11 +33,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
+            //check if player reached screen boundaries
             if (screenPos.x > 0)
                 translationX = -moveSpeed;
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
+            //check if player reached screen boundaries
             if (screenPos.x < Screen.width)
                 translationX = moveSpeed;
         }
@@ -48,17 +48,13 @@ public class PlayerController : MonoBehaviour
         translationX *= Time.deltaTime;
         translationY *= Time.deltaTime;
 
-        // Move translation along the object's y-axis
+        // Move player
         transform.Translate(translationX, translationY, 0);
     }
-    
-    void OnCollisionEnter2D(Collision2D collision)
+
+    // Update is called once per frame
+    void Update()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("Player collided with an enemy!");
-            Destroy(collision.gameObject); // Destroy the enemy on collision
-            roundManager.EnemyKilled(); 
-        }
+        playerMovement();
     }
 }
