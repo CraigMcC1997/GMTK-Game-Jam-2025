@@ -5,7 +5,6 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
-
     public Button healthButton;
     public Button damageButton;
     public Button speedButton;
@@ -95,6 +94,12 @@ public class MenuManager : MonoBehaviour
 
     public void Confirm()
     {
+        if (!confirmed)
+        {
+            Debug.LogWarning("Upgrade not chosen. Please select an upgrade before confirming.");
+            return;
+        }
+
         switch (confirm_choice)
         {
             case (int)Choice.HEALTH:
