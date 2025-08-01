@@ -23,6 +23,8 @@ public class PlayerManager : MonoBehaviour
     public GameObject enemyOBJ;
     EnemyManager enemy;
 
+    AudioSource[] damageSounds = new AudioSource[5];
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +34,14 @@ public class PlayerManager : MonoBehaviour
         loadStats(); // Load player stats from PlayerPrefs
         healthBar.maxValue = STARTING_HEALTH; // Set the maximum value of the health bar
         healthBar.value = PlayerHealth;
+
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+
+        damageSounds[0] = audioSources[0];
+        damageSounds[1] = audioSources[1];
+        damageSounds[2] = audioSources[2];
+        damageSounds[3] = audioSources[3];
+        damageSounds[4] = audioSources[4];
     }
 
     public void UpdateUI()
@@ -81,6 +91,9 @@ public class PlayerManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            int RandomSound = Random.Range(0, damageSounds.Length);
+            Debug.Log("Playing damage sound: " + RandomSound);
+            damageSounds[RandomSound].Play(); // Play random damage sound
             PlayerHealth -= enemy.EnemyDoesDamage(); // Reduce player health by enemy damage
             UpdateUI(); // Update the UI after taking damage
         }
