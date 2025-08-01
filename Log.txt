@@ -21,3 +21,13 @@ Game now ends when their health reaches 0
 Game over shows the players highest stats
 Added a controls and instructions page for ease of play and to keep everything inside the game itself
 
+Day 3:
+Major tweaks across the entire game to make it more playable and fun
+A lot of bug fixing and play testing
+Fixed an issue with the buttons which was due to text scaling causing the mouse to be incorrectly tracked
+Moved enemies to spawn outside of the playable area
+Added a laser sight to make aiming easier
+Tested Linux & web builds (web build extremely slow)
+Added text to the controls and instructions page
+
+

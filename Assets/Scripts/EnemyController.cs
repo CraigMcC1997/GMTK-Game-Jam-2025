@@ -3,11 +3,12 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     GameObject Player;
-    float speed = 2.7f;
+    float speed;
 
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        speed = Random.Range(2.0f, 4.0f);
     }
 
     void Update()
