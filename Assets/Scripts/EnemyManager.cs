@@ -51,7 +51,7 @@ public class EnemyManager : MonoBehaviour
 
     public void moveEnemyAway()
     {
-        Vector2 newPosition = new Vector2(Random.Range(-8f, 8f), Random.Range(-4f, 4f));
+        Vector2 newPosition = new Vector2(Random.Range(-10.0f, 10.0f), 7.0f);
         transform.position = newPosition; // Move the enemy to a random position within bounds
 
         // when the enemy collides with the player, it will deal damage to itself
