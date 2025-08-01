@@ -23,20 +23,14 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!roundManager.GetMaxEnemiesReached())
         {
-            // TODO: FIX !! This slows down the creation of enemies, needs to be on a fixed timer instead
-            float randomiser = UnityEngine.Random.Range(0, 1000);
+            Vector2 newPosition = new Vector2(Random.Range(-30.0f, 30.0f), Random.Range(-25.0f, 25.0f));
 
-            if (randomiser < 7) // Adjust the spawn rate as needed
+            if (Vector2.Distance(newPosition, player.transform.position) > 10.0f)
             {
-                Vector2 newPosition = new Vector2(Random.Range(-15.0f, 15.0f), Random.Range(-9.0f, 9.0f));
+                Vector3 position = new Vector3(newPosition.x, newPosition.y, 0.0f);
 
-                if (Vector2.Distance(newPosition, player.transform.position) > 10.0f)
-                {
-                    Vector3 position = new Vector3(newPosition.x, newPosition.y, 0.0f);
-
-                    roundManager.EnemySpawned();
-                    Instantiate(enemyPrefab, position, Quaternion.identity);
-                }
+                roundManager.EnemySpawned();
+                Instantiate(enemyPrefab, position, Quaternion.identity);
             }
         }
     }
