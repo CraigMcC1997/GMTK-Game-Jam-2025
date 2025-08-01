@@ -2,9 +2,7 @@ TODO:
 Pause menu
 Add audio
 Add Textures (Miniumum a background)
-Randomise enemy speed (maybe increase in higher levels)
 Transitions between levels
-Explain better that the enemies get more health as the rounds count up
 
 Improvement:
 Add a bullet counter
