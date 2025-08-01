@@ -31,6 +31,7 @@ public class MenuManager : MonoBehaviour
     AudioSource healAudio;
     AudioSource damageAudio;
     AudioSource speedAudio;
+    AudioSource confirmAudio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,6 +46,7 @@ public class MenuManager : MonoBehaviour
         healAudio = audioSources[0]; // Assuming healAudio is the first AudioSource
         damageAudio = audioSources[1]; // Assuming damageAudio is the second AudioSource
         speedAudio = audioSources[2]; // Assuming speedAudio is the third AudioSource
+        confirmAudio = audioSources[3]; // Assuming confirmAudio is the fourth AudioSource
     }
 
     public void ReturnToGame()
@@ -138,6 +140,7 @@ public class MenuManager : MonoBehaviour
 
         if (confirmed)
         {
+            confirmAudio.Play();
             ReturnToGame();
         }
     }

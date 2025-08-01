@@ -13,10 +13,13 @@ public class GameOverManager : MonoBehaviour
 
     public Button restartButton;
 
+    AudioSource clickAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameOverText.text = "Game Over!";
+        clickAudio = GetComponent<AudioSource>();
         getHighestStats(); // Get the highest stats from PlayerPrefs
         restartButton.onClick.AddListener(RestartGame);
     }
@@ -36,6 +39,7 @@ public class GameOverManager : MonoBehaviour
 
     void RestartGame()
     {
+        clickAudio.Play();
         // Load the game scene to restart
         UnityEngine.SceneManagement.SceneManager.LoadScene("Play Screen");
     }

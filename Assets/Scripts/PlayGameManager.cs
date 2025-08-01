@@ -7,11 +7,15 @@ public class PlayGameManager : MonoBehaviour
     public Button InstructionsButton;
     public Button ControlsButton;
 
+    AudioSource clickAudio;
+
     void Start()
     {
         playButton.onClick.AddListener(StartGame);
         InstructionsButton.onClick.AddListener(ShowInstructions);
         ControlsButton.onClick.AddListener(ShowControls);
+
+        clickAudio = GetComponent<AudioSource>();
     }
 
     void resetAllStats()
@@ -29,6 +33,7 @@ public class PlayGameManager : MonoBehaviour
 
     void StartGame()
     {
+        clickAudio.Play();
         resetAllStats();
         // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
@@ -36,12 +41,14 @@ public class PlayGameManager : MonoBehaviour
 
     void ShowInstructions()
     {
+        clickAudio.Play();
         // Load the instructions scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("Instructions");
     }
 
     void ShowControls()
     {
+        clickAudio.Play();
         // Load the controls scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("Controls");
     }
