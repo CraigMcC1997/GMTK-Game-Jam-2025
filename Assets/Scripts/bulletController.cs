@@ -4,11 +4,14 @@ public class bulletController : MonoBehaviour
 {
     Vector3 mousePos;
 
-    public float force = 5.0f;
+    public float force = 70.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameObject player = FindFirstObjectByType<PlayerManager>().GetComponent<PlayerManager>().gameObject;
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -21,7 +24,7 @@ public class bulletController : MonoBehaviour
 
     void Update()
     {
-        // Destroy the bullet after 10 seconds to prevent memory leaks
-        Destroy(gameObject, 10.0f);
+        // Destroy the bullet after 4 seconds to prevent memory leaks
+        Destroy(gameObject, 4.0f);
     }
 }
