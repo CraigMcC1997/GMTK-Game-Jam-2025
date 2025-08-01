@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerManager = FindFirstObjectByType<PlayerManager>().GetComponent<PlayerManager>();
         moveSpeed = playerManager.getPlayerSpeed();
-
-        Debug.Log("Player Speed: " + moveSpeed);
     }
 
     void playerMovement()

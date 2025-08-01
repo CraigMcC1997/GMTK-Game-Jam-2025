@@ -19,10 +19,10 @@ public class PlayGameManager : MonoBehaviour
         PlayerPrefs.SetInt("PlayerHealth", 100);
         PlayerPrefs.SetInt("PlayerDamage", 10);
         PlayerPrefs.SetInt("PlayerSpeed", 5);
-        PlayerPrefs.SetInt("HighestHealth", 0);
-        PlayerPrefs.SetInt("HighestDamage", 0);
-        PlayerPrefs.SetInt("HighestSpeed", 0);
-        PlayerPrefs.SetInt("HighestRound", 0);
+        PlayerPrefs.SetInt("HighestHealth", 100);
+        PlayerPrefs.SetInt("HighestDamage", 10);
+        PlayerPrefs.SetInt("HighestSpeed", 5);
+        PlayerPrefs.SetInt("HighestRound", 1);
         PlayerPrefs.SetInt("CurrentRound", 0);
         PlayerPrefs.Save(); // Ensure all changes are saved
     }

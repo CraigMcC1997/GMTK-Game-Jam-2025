@@ -23,10 +23,10 @@ public class GameOverManager : MonoBehaviour
 
     void getHighestStats()
     {
-        int highestHealth = PlayerPrefs.GetInt("HighestHealth", 0);
-        int highestDamage = PlayerPrefs.GetInt("PlayerDamage", 0);
-        int highestSpeed = PlayerPrefs.GetInt("PlayerSpeed", 0);
-        int highestRound = PlayerPrefs.GetInt("HighestRound", 0);
+        int highestHealth = PlayerPrefs.GetInt("HighestHealth", 100);
+        int highestDamage = PlayerPrefs.GetInt("PlayerDamage", 10);
+        int highestSpeed = PlayerPrefs.GetInt("PlayerSpeed", 5);
+        int highestRound = PlayerPrefs.GetInt("HighestRound", 1);
 
         highestHealthText.text = "~ Highest Health: " + highestHealth.ToString();
         highestDamageText.text = "~ Highest Damage: " + highestDamage.ToString();

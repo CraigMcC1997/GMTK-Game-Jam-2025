@@ -312,7 +312,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The objective is blah blah blah
+  m_text: "The objective of the game is to survive for as long as possible.\nYou
+    must kill all enemies to progress to the next round.\n\nAt the end of each round
+    you may chose 1 of 3 upgrades:\n\n\t+10 health points\n\t+ 5 Damage to enemies\n\t+
+    3 movement speed\n\nYour stats carry across each round so choose between getting
+    your health back up or upgrading your abilities"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -339,8 +343,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62
-  m_fontSizeBase: 62
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -377,7 +381,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -759.6171, w: -41.4504}
+  m_margin: {x: 0, y: -20.15483, z: -759.6171, w: -742.7235}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
