@@ -8,7 +8,7 @@ Improvement:
 Add a bullet counter
 - Max in a chamber until reload
 - Right click to reload only when empty
-- Add an upgrade which adds more bullets to a chambe
+- Add an upgrade which adds more bullets to a chamber
 More Updgrades / single round enhancements:
 - tracking bullets which aim towards enemies automatically
 - Press space for an explosion which clears enemies within a radius

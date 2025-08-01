@@ -11,8 +11,10 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 /WebBuild/
+/WindowsBuild/
 *.log
 [Bb]uild*
+GameExe*
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
