@@ -26,7 +26,11 @@ public class MenuManager : MonoBehaviour
     int speedUpgrade;
     int confirm_choice;
 
-    bool confirmed = false; 
+    bool confirmed = false;
+
+    AudioSource healAudio;
+    AudioSource damageAudio;
+    AudioSource speedAudio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +39,12 @@ public class MenuManager : MonoBehaviour
         damageButton.onClick.AddListener(Updatedamage);
         speedButton.onClick.AddListener(UpdateSpeed);
         confirmButton.onClick.AddListener(Confirm);
+
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+
+        healAudio = audioSources[0]; // Assuming healAudio is the first AudioSource
+        damageAudio = audioSources[1]; // Assuming damageAudio is the second AudioSource
+        speedAudio = audioSources[2]; // Assuming speedAudio is the third AudioSource
     }
 
     public void ReturnToGame()
@@ -45,22 +55,25 @@ public class MenuManager : MonoBehaviour
 
     public void UpdateHealth()
     {
+        healAudio.Play();
         confirmed = true;
         choice(Choice.HEALTH);
     }
 
     public void Updatedamage()
     {
+        damageAudio.Play();
         confirmed = true;
         choice(Choice.DAMAGE);
     }
 
     public void UpdateSpeed()
     {
+        speedAudio.Play();
         confirmed = true;
         choice(Choice.SPEED);
     }
-    
+
     void choice(Choice choice)
     {
         switch (choice)

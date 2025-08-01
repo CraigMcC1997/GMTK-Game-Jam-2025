@@ -7,14 +7,17 @@ public class shootingPointController : MonoBehaviour
 
     public GameObject bullet;
     public Transform firePoint;
-    
+    AudioSource gunFire;
+
     void Start()
     {
+        gunFire = GetComponent<AudioSource>();
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     void shoot()
-    { 
+    {
+        gunFire.Play();
         Instantiate(bullet, firePoint.position, Quaternion.identity);
     }
 
