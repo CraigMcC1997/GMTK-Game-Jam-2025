@@ -33,8 +33,8 @@ public class EnemySpawner : MonoBehaviour
                 if (Vector3.Distance(new Vector3(spawnX, spawnY, 0), player.transform.position) < 10.0f)
                 {
                     // If the spawn position is too close to the player, move the spawn position further away
-                    spawnX += UnityEngine.Random.Range(-10.0f, 10.0f);
-                    spawnY += UnityEngine.Random.Range(-10.0f, 10.0f);
+                    spawnX += UnityEngine.Random.Range(-5.0f, 5.0f);
+                    spawnY += UnityEngine.Random.Range(-5.0f, 5.0f);
                 }
 
                 Vector3 position = new Vector3(spawnX, spawnY, 0.0f);

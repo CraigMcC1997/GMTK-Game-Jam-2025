@@ -82,8 +82,8 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerHealth -= enemy.EnemyDoesDamage(); // Reduce player health by enemy damage
             UpdateUI(); // Update the UI after taking damage
-            Destroy(collision.gameObject); // Destroy the enemy object on collision
-            roundManager.EnemyKilled(); // Notify the round manager that an enemy was spawned
+            //Destroy(collision.gameObject); // Destroy the enemy object on collision
+            //roundManager.EnemyKilled(); // Notify the round manager that an enemy was spawned
 
             // TODO: Move the enemy away from the player instead of destroying it
             //enemy.moveEnemyAway();

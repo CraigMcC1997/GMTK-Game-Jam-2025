@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-    int enemyHealth = 30; // Example value, can be adjusted
+    int enemyHealth = 25; // Example value, can be adjusted
+    int enemyHealthModifier = 2; // Example value, can be adjusted
     int enemyDamage = 10;  
 
     public Slider healthBar;
@@ -15,6 +16,9 @@ public class EnemyManager : MonoBehaviour
     {
         player = FindFirstObjectByType<PlayerManager>().GetComponent<PlayerManager>();
         roundManager = FindFirstObjectByType<RoundManager>().GetComponent<RoundManager>();
+
+        if (roundManager.GetCurrentRound() > 1)
+            enemyHealth += roundManager.GetCurrentRound() * enemyHealthModifier; // Increase health based on the current round
         healthBar.maxValue = enemyHealth;
         UpdateHealthBar();
     }
@@ -60,6 +64,11 @@ public class EnemyManager : MonoBehaviour
         {
             EnemyTakesDamage(player.GetPlayerDamage());
             Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            moveEnemyAway();
         }
     }
 }

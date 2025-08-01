@@ -9,6 +9,7 @@ public class GameOverManager : MonoBehaviour
     public TMP_Text highestHealthText;
     public TMP_Text highestDamageText;
     public TMP_Text highestSpeedText;
+    public TMP_Text highestRoundText;
 
     public Button restartButton;
 
@@ -25,15 +26,17 @@ public class GameOverManager : MonoBehaviour
         int highestHealth = PlayerPrefs.GetInt("HighestHealth", 0);
         int highestDamage = PlayerPrefs.GetInt("PlayerDamage", 0);
         int highestSpeed = PlayerPrefs.GetInt("PlayerSpeed", 0);
+        int highestRound = PlayerPrefs.GetInt("HighestRound", 0);
 
         highestHealthText.text = "~ Highest Health: " + highestHealth.ToString();
         highestDamageText.text = "~ Highest Damage: " + highestDamage.ToString();
         highestSpeedText.text = "~ Highest Speed: " + highestSpeed.ToString();
+        highestRoundText.text = "~ Highest Round: " + highestRound.ToString();
     }
 
     void RestartGame()
     {
         // Load the game scene to restart
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Play Screen");
     }
 }

@@ -11,6 +11,7 @@ public class RoundManager : MonoBehaviour
     int currentEnemiesKilled = 0; // Track how many enemies have been killed in this round
 
     public TMP_Text roundText; // Reference to a UI Text element to display the current round
+    public TMP_Text enemiesRemainingText; // Reference to a UI Text element to display the current enemy count
 
     PlayerManager playerManager;
 
@@ -18,6 +19,7 @@ public class RoundManager : MonoBehaviour
     {
         playerManager = FindFirstObjectByType<PlayerManager>();
         UpdateRoundCounter();
+        UpdateEnemiesRemainingText();
 
         //TODO: player manager should handle this instead, maybe a call a function here instead
         if (currentRound == 1)
@@ -51,6 +53,14 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+    void UpdateEnemiesRemainingText()
+    {
+        if (enemiesRemainingText != null)
+        {
+            enemiesRemainingText.text = "Enemies Remaining: " + (GetMaxEnemies() - currentEnemiesKilled);
+        }
+    }
+
     public int GetCurrentRound()
     {
         return currentRound;
@@ -66,12 +76,11 @@ public class RoundManager : MonoBehaviour
         playerManager.saveStats(); // Save player stats to be used in the next round
         //save the current round number
         PlayerPrefs.SetInt("CurrentRound", currentRound);
+        PlayerPrefs.SetInt("HighestRound", Mathf.Max(currentRound, PlayerPrefs.GetInt("HighestRound", 0))); // Save the highest round reached
     }
 
     void roundComplete()
     {
-        Debug.Log("Round " + currentRound + " completed!");
-
         saveStats();
 
         //load the upgrade screen
@@ -89,7 +98,7 @@ public class RoundManager : MonoBehaviour
     public void EnemyKilled()
     {
         currentEnemiesKilled++;
-
+        UpdateEnemiesRemainingText();
         checkForRoundCompletion();
     }
 
@@ -101,5 +110,6 @@ public class RoundManager : MonoBehaviour
     void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("CurrentRound", 0); // Reset the current round when the game ends
+        PlayerPrefs.SetInt("HighestRound", 0); // Reset the highest round reached
     }
 }

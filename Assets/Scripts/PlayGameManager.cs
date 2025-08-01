@@ -14,8 +14,22 @@ public class PlayGameManager : MonoBehaviour
         ControlsButton.onClick.AddListener(ShowControls);
     }
 
+    void resetAllStats()
+    {
+        PlayerPrefs.SetInt("PlayerHealth", 100);
+        PlayerPrefs.SetInt("PlayerDamage", 10);
+        PlayerPrefs.SetInt("PlayerSpeed", 5);
+        PlayerPrefs.SetInt("HighestHealth", 0);
+        PlayerPrefs.SetInt("HighestDamage", 0);
+        PlayerPrefs.SetInt("HighestSpeed", 0);
+        PlayerPrefs.SetInt("HighestRound", 0);
+        PlayerPrefs.SetInt("CurrentRound", 0);
+        PlayerPrefs.Save(); // Ensure all changes are saved
+    }
+
     void StartGame()
     {
+        resetAllStats();
         // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
     }

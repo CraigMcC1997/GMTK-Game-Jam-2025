@@ -3,15 +3,13 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     GameObject Player;
-    float speed = 4.0f;
+    float speed = 2.7f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         float step = speed * Time.deltaTime;
