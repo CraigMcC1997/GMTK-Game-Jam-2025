@@ -40,6 +40,8 @@ Added Menu enemy for visual appeal
 Updated the entire games visuals with Brackleys 2D asset pack
 Added all audio for now, mostly finalised the game, some tweaks needed and still plenty of time left
 Offically chose the name "Loop of the Dead"
+Fixed audio for player death / game over
+Added audio for enemy hit & enemy death
 
 Day 5 (Sunday):
 

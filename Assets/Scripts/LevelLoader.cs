@@ -15,7 +15,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadTitleScene()
     {
-        StartCoroutine(LoadScene("Title Screen"));
+        StartCoroutine(LoadScene("TitleScreen"));
     }
 
     public void LoadGame()
