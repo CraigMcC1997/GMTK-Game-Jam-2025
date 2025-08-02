@@ -9,11 +9,16 @@ public class PlayGameManager : MonoBehaviour
 
     AudioSource clickAudio;
 
+    public GameObject levelLoader;
+    LevelLoader levelLoaderScript;
+
     void Start()
     {
         playButton.onClick.AddListener(StartGame);
         InstructionsButton.onClick.AddListener(ShowInstructions);
         ControlsButton.onClick.AddListener(ShowControls);
+
+        levelLoaderScript = levelLoader.GetComponent<LevelLoader>();
 
         clickAudio = GetComponent<AudioSource>();
     }
@@ -36,20 +41,20 @@ public class PlayGameManager : MonoBehaviour
         clickAudio.Play();
         resetAllStats();
         // Load the game scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+        levelLoaderScript.LoadGame();
     }
 
     void ShowInstructions()
     {
         clickAudio.Play();
         // Load the instructions scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Instructions");
+        levelLoaderScript.LoadInstructions();
     }
 
     void ShowControls()
     {
         clickAudio.Play();
         // Load the controls scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Controls");
+        levelLoaderScript.LoadControls();
     }
 }

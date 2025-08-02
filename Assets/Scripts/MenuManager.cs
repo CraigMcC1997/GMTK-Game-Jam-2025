@@ -33,6 +33,9 @@ public class MenuManager : MonoBehaviour
     AudioSource speedAudio;
     AudioSource confirmAudio;
 
+    public GameObject levelLoader;
+    LevelLoader levelLoaderScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,12 +50,8 @@ public class MenuManager : MonoBehaviour
         damageAudio = audioSources[1]; // Assuming damageAudio is the second AudioSource
         speedAudio = audioSources[2]; // Assuming speedAudio is the third AudioSource
         confirmAudio = audioSources[3]; // Assuming confirmAudio is the fourth AudioSource
-    }
 
-    public void ReturnToGame()
-    {
-        // Load the game scene
-        SceneManager.LoadScene("Game");
+        levelLoaderScript = levelLoader.GetComponent<LevelLoader>();
     }
 
     public void UpdateHealth()
@@ -141,7 +140,7 @@ public class MenuManager : MonoBehaviour
         if (confirmed)
         {
             confirmAudio.Play();
-            ReturnToGame();
+            levelLoaderScript.LoadGame();
         }
     }
 }

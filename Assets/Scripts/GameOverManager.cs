@@ -15,6 +15,9 @@ public class GameOverManager : MonoBehaviour
 
     AudioSource clickAudio;
 
+    public GameObject levelLoader;
+    LevelLoader levelLoaderScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +25,8 @@ public class GameOverManager : MonoBehaviour
         clickAudio = GetComponent<AudioSource>();
         getHighestStats(); // Get the highest stats from PlayerPrefs
         restartButton.onClick.AddListener(RestartGame);
+
+        levelLoaderScript = levelLoader.GetComponent<LevelLoader>();
     }
 
     void getHighestStats()
@@ -41,6 +46,6 @@ public class GameOverManager : MonoBehaviour
     {
         clickAudio.Play();
         // Load the game scene to restart
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Play Screen");
+        levelLoaderScript.LoadPlayScene();
     }
 }
