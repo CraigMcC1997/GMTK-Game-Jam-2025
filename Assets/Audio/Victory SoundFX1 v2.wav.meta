@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 1d2f348735857f047b7a5defd60d930a
-AssetOrigin:
-  serializedVersion: 1
-  productId: 164843
-  packageName: Free Casual SoundFX Pack
-  packageVersion: 1.0
-  assetPath: Assets/Casual SoundFX Pack/Sounds/GameOver.wav
-  uploadId: 362535
+guid: 28fdb7f59fe2a0ad8aee3dc928ad8e86
 AudioImporter:
   externalObjects: {}
   serializedVersion: 8
@@ -18,7 +11,7 @@ AudioImporter:
     compressionFormat: 1
     quality: 1
     conversionMode: 0
-    preloadAudioData: 1
+    preloadAudioData: 0
   platformSettingOverrides: {}
   forceToMono: 0
   normalize: 1

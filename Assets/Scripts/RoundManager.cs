@@ -18,6 +18,8 @@ public class RoundManager : MonoBehaviour
     public GameObject LevelLoader; // Reference to the LevelLoader script
     LevelLoader levelLoaderScript;
 
+    AudioSource roundCompleteAudio;
+
     void Start()
     {
         playerManager = FindFirstObjectByType<PlayerManager>();
@@ -25,6 +27,7 @@ public class RoundManager : MonoBehaviour
         UpdateEnemiesRemainingText();
 
         levelLoaderScript = LevelLoader.GetComponent<LevelLoader>();
+        roundCompleteAudio = GetComponent<AudioSource>();
 
         //TODO: player manager should handle this instead, maybe a call a function here instead
         if (currentRound == 1)
@@ -88,8 +91,7 @@ public class RoundManager : MonoBehaviour
     {
         saveStats();
 
-        //TODO: ADD AUDIO HERE TO CELEBRATE ROUND COMPLETION
-
+        roundCompleteAudio.Play();
         //load the upgrade screen
         levelLoaderScript.LoadUpgradesScene();
     }

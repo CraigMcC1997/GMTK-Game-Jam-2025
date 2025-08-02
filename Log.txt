@@ -39,6 +39,7 @@ Updates controls page with a more user friendly assets instead of text
 Added Menu enemy for visual appeal
 Updated the entire games visuals with Brackleys 2D asset pack
 Added all audio for now, mostly finalised the game, some tweaks needed and still plenty of time left
+Offically chose the name "Loop of the Dead"
 
 Day 5 (Sunday):
 

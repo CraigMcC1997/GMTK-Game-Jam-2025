@@ -6,6 +6,12 @@ using System.Collections.Generic;
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
+    AudioSource gameOverAudio;
+
+    void Start()
+    {
+        gameOverAudio = GetComponent<AudioSource>();
+    }
 
     public void LoadPlayScene()
     {
@@ -29,18 +35,26 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadUpgradesScene()
     {
-        StartCoroutine(LoadScene("UpgradesScreen"));
+        StartCoroutine(LoadScene("UpgradesScreen", 1.0f));
     }
 
     public void LoadGameOver()
     {
-        StartCoroutine(LoadScene("Game Over"));
+        if (gameOverAudio != null)
+        {
+            gameOverAudio.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Game Over audio source not found!");
+        }
+        StartCoroutine(LoadScene("Game Over", 1.0f));
     }
 
-    IEnumerator LoadScene(string sceneName)
+    IEnumerator LoadScene(string sceneName, float delay = 0.75f)
     {
         transition.SetTrigger("Start");
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
     }
 }
