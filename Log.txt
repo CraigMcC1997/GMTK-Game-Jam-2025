@@ -42,6 +42,7 @@ Added all audio for now, mostly finalised the game, some tweaks needed and still
 Offically chose the name "Loop of the Dead"
 Fixed audio for player death / game over
 Added audio for enemy hit & enemy death
+Fully integrated a pause menu into the game allowing for pause, resume, restart and main menu
 
 Day 5 (Sunday):
 

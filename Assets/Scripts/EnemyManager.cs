@@ -62,13 +62,6 @@ public class EnemyManager : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-        
-        // Alternative: Disable specific component types in all children
-        // Collider2D[] childColliders = GetComponentsInChildren<Collider2D>();
-        // foreach (Collider2D collider in childColliders)
-        // {
-        //     collider.enabled = false;
-        // }
 
         Destroy(gameObject, 1.0f); // Destroy the enemy object
     }
