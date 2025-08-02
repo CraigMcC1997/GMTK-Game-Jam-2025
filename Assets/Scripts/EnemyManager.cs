@@ -12,14 +12,17 @@ public class EnemyManager : MonoBehaviour
     PlayerManager player;
     RoundManager roundManager;
 
-    AudioSource wooshAwaySound;
+    AudioSource wooshAwaySound, hitSound, deathSound;
 
     void Start()
     {
         player = FindFirstObjectByType<PlayerManager>().GetComponent<PlayerManager>();
         roundManager = FindFirstObjectByType<RoundManager>().GetComponent<RoundManager>();
 
-        wooshAwaySound = GetComponent<AudioSource>();
+        AudioSource[] audios = GetComponents<AudioSource>();
+        wooshAwaySound = audios[0]; // Assuming the first audio source is the woosh sound
+        hitSound = audios[1]; // Assuming the second audio source is the hit sound
+        deathSound = audios[2]; // Assuming the third audio source is the death sound
 
         if (roundManager.GetCurrentRound() > 1)
             enemyHealth += roundManager.GetCurrentRound() * enemyHealthModifier; // Increase health based on the current round
@@ -39,17 +42,42 @@ public class EnemyManager : MonoBehaviour
 
     public void EnemyTakesDamage(int damage)
     {
+        hitSound.Play(); // Play the hit sound effect
         enemyHealth -= damage;
         UpdateHealthBar();
         checkForDeath();
+    }
+
+    void killEnemy()
+    {
+        deathSound.Play(); // Play the death sound effect
+        roundManager.EnemyKilled();
+        
+        // Disable this object's components
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        
+        // Disable all child objects
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+        
+        // Alternative: Disable specific component types in all children
+        // Collider2D[] childColliders = GetComponentsInChildren<Collider2D>();
+        // foreach (Collider2D collider in childColliders)
+        // {
+        //     collider.enabled = false;
+        // }
+
+        Destroy(gameObject, 1.0f); // Destroy the enemy object
     }
     
     void checkForDeath()
     {
         if (enemyHealth <= 0)
         {
-            roundManager.EnemyKilled(); 
-            Destroy(gameObject); // Destroy the enemy object
+            killEnemy();
         }
     }
 

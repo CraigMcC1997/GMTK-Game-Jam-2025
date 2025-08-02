@@ -22,6 +22,6 @@ public class ReturnManager : MonoBehaviour
     {
         // Load the menu scene
         returnAudio.Play();
-        levelLoaderScript.LoadPlayScene();
+        levelLoaderScript.LoadTitleScene();
     }
 }

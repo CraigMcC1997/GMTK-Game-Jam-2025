@@ -13,9 +13,9 @@ public class LevelLoader : MonoBehaviour
         gameOverAudio = GetComponent<AudioSource>();
     }
 
-    public void LoadPlayScene()
+    public void LoadTitleScene()
     {
-        StartCoroutine(LoadScene("Play Screen"));
+        StartCoroutine(LoadScene("Title Screen"));
     }
 
     public void LoadGame()

@@ -46,6 +46,6 @@ public class GameOverManager : MonoBehaviour
     {
         clickAudio.Play();
         // Load the game scene to restart
-        levelLoaderScript.LoadPlayScene();
+        levelLoaderScript.LoadTitleScene();
     }
 }
