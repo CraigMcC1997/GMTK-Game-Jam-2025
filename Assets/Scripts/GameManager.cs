@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     LevelLoader levelLoaderScript;
     public GameObject LevelLoader; // Reference to the LevelLoader script
 
+    bool gameOverAudio = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,8 +24,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //TODO: should be a get function
-        if (playerManager.CheckPlayerDeath())
+        if (playerManager.CheckPlayerDeath() && gameOverAudio)
         {
+            gameOverAudio = false; // Prevent multiple game over triggers
             levelLoaderScript.LoadGameOver();
         }
     }
