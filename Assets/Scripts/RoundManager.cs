@@ -15,11 +15,16 @@ public class RoundManager : MonoBehaviour
 
     PlayerManager playerManager;
 
+    public GameObject LevelLoader; // Reference to the LevelLoader script
+    LevelLoader levelLoaderScript;
+
     void Start()
     {
         playerManager = FindFirstObjectByType<PlayerManager>();
         UpdateRoundCounter();
         UpdateEnemiesRemainingText();
+
+        levelLoaderScript = LevelLoader.GetComponent<LevelLoader>();
 
         //TODO: player manager should handle this instead, maybe a call a function here instead
         if (currentRound == 1)
@@ -84,7 +89,7 @@ public class RoundManager : MonoBehaviour
         saveStats();
 
         //load the upgrade screen
-        SceneManager.LoadScene("UpgradesScreen");
+        levelLoaderScript.LoadUpgradesScene();
     }
 
     void checkForRoundCompletion()
