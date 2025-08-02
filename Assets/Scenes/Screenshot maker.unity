@@ -490,6 +490,38 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_Size.x
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300010, guid: d064385dfce29934793208022539c6cd, type: 3}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5178918436850357389, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
       propertyPath: m_Color.b
       value: 0.00055480003
