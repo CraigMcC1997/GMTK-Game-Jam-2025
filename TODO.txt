@@ -1,8 +1,10 @@
 TODO:
 Pause menu
-Add audio
-Add Textures (Miniumum a background)
-Transitions between levels
+Add audio for enemy moving away (woosh)
+Add audio for player death
+Maybe add some background audio
+Update game page
+Get MacOS build
 
 Improvement:
 Add a bullet counter
