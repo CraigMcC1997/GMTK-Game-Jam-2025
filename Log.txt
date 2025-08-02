@@ -35,6 +35,7 @@ Made the game page on itch.io
 
 Day 4 (Saturday):
 Added scene transitions to smooth out the jarring cuts between level changes
+Updates controls page with a more user friendly assets instead of text
 
 Day 5 (Sunday):
 
