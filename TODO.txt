@@ -1,10 +1,9 @@
 TODO:
 Pause menu
-Add audio for enemy moving away (woosh)
-Add audio for player death
-Maybe add some background audio
-Update game page
-Get MacOS build
+Fix audio for player death / game over
+Add audio for enemy hit
+Add audio for enemy death
+Maybe add some simple background audio
 
 Improvement:
 Add a bullet counter
