@@ -112,9 +112,16 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4530222035670870552, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5563784679545512901, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
     - {fileID: 2328166947088711839, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+    - {fileID: 8957358984441792699, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+    - {fileID: 631417288492587235, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
+    - {fileID: 8230663608079854276, guid: e5a4d37100cd007998fbc5db6ecb9377, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

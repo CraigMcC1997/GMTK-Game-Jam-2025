@@ -87,6 +87,20 @@ public class PlayerManager : MonoBehaviour
         return PlayerSpeed;
     }
 
+    public int GetPlayerHealth()
+    {
+        return PlayerHealth;
+    }
+
+    public bool CheckPlayerDeath()
+    {
+        if (PlayerHealth <= 0)
+        {
+            return true; // Player is dead
+        }
+        return false; // Player is alive
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
