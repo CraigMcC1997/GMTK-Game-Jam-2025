@@ -92,7 +92,6 @@ public class PlayerManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             int RandomSound = Random.Range(0, damageSounds.Length);
-            Debug.Log("Playing damage sound: " + RandomSound);
             damageSounds[RandomSound].Play(); // Play random damage sound
             PlayerHealth -= enemy.EnemyDoesDamage(); // Reduce player health by enemy damage
             UpdateUI(); // Update the UI after taking damage
