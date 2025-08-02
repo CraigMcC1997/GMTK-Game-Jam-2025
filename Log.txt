@@ -1,6 +1,6 @@
 Log
 
-Day 1:
+Day 1 (Wednesday):
 Started 3 hours late
 Choosing the game
 Setting up the scene
@@ -8,7 +8,7 @@ Having a moving player
 Adding enemies that chase the player
 Added 2 scenes; the game and the upgrade window
 
-Day 2:
+Day 2 (Thursday):
 Fixed round counters to allow new rounds to start only after an upgrade is chosen 
 Added all UI elements
 Added a healthbar for the first time
@@ -21,7 +21,7 @@ Game now ends when their health reaches 0
 Game over shows the players highest stats
 Added a controls and instructions page for ease of play and to keep everything inside the game itself
 
-Day 3:
+Day 3 (Friday):
 Major tweaks across the entire game to make it more playable and fun
 A lot of bug fixing and play testing
 Fixed an issue with the buttons which was due to text scaling causing the mouse to be incorrectly tracked
@@ -29,5 +29,12 @@ Moved enemies to spawn outside of the playable area
 Added a laser sight to make aiming easier
 Tested Linux & web builds (web build extremely slow)
 Added text to the controls and instructions page
+Added audio for the player, bullets and menu clicks
+Uploaded my first build of the game and submitted early, was in the first 400 submissions (1 day and 23 hours early)
+Made the game page on itch.io
+
+Day 4 (Saturday):
+
+Day 5 (Sunday):
 
 
