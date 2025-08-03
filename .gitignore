@@ -15,6 +15,10 @@
 *.log
 [Bb]uild*
 GameExe*
+GMTK*
+libdecor-*
+UnityPlayer.so
+
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
