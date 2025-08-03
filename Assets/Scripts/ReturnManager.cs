@@ -18,6 +18,14 @@ public class ReturnManager : MonoBehaviour
         returnAudio = GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ReturnToMenu();
+        }
+    }
+
     void ReturnToMenu()
     {
         // Load the menu scene

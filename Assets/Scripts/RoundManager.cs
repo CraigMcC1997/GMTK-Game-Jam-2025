@@ -7,8 +7,9 @@ public class RoundManager : MonoBehaviour
 {
     int currentRound = 0;
     int currentEnemiesSpawned = 0;
-    int maxEnemiesPerRound = 3; // Example value, adjust as needed
+    int maxEnemiesPerRound = 4; // Example value, adjust as needed
     int currentEnemiesKilled = 0; // Track how many enemies have been killed in this round
+    int overallEnemiesKilled = 0; // Track total enemies killed across all rounds
 
     public TMP_Text roundText; // Reference to a UI Text element to display the current round
     public TMP_Text enemiesRemainingText; // Reference to a UI Text element to display the current enemy count
@@ -28,6 +29,8 @@ public class RoundManager : MonoBehaviour
 
         levelLoaderScript = LevelLoader.GetComponent<LevelLoader>();
         roundCompleteAudio = GetComponent<AudioSource>();
+
+        overallEnemiesKilled = PlayerPrefs.GetInt("EnemiesKilled", 0);
 
         //TODO: player manager should handle this instead, maybe a call a function here instead
         if (currentRound == 1)
@@ -79,12 +82,18 @@ public class RoundManager : MonoBehaviour
         currentEnemiesSpawned++;
     }
 
+    public void saveEnemiesKilled()
+    {
+        PlayerPrefs.SetInt("EnemiesKilled", overallEnemiesKilled);
+    }
+
     void saveStats()
     {
         playerManager.saveStats(); // Save player stats to be used in the next round
         //save the current round number
         PlayerPrefs.SetInt("CurrentRound", currentRound);
         PlayerPrefs.SetInt("HighestRound", Mathf.Max(currentRound, PlayerPrefs.GetInt("HighestRound", 0))); // Save the highest round reached
+        saveEnemiesKilled();
     }
 
     void roundComplete()
@@ -107,6 +116,7 @@ public class RoundManager : MonoBehaviour
     public void EnemyKilled()
     {
         currentEnemiesKilled++;
+        overallEnemiesKilled++;
         UpdateEnemiesRemainingText();
         checkForRoundCompletion();
     }
@@ -120,5 +130,6 @@ public class RoundManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("CurrentRound", 0); // Reset the current round when the game ends
         PlayerPrefs.SetInt("HighestRound", 0); // Reset the highest round reached
+        PlayerPrefs.SetInt("EnemiesKilled", 0); // Reset the enemies killed count
     }
 }

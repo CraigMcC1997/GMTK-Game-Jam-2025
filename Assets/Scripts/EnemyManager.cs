@@ -63,7 +63,8 @@ public class EnemyManager : MonoBehaviour
             child.gameObject.SetActive(false);
         }
 
-        Destroy(gameObject, 1.0f); // Destroy the enemy object
+        //This allows the death audio to finish playing before destroying the object
+        Destroy(gameObject, 1.0f);
     }
     
     void checkForDeath()

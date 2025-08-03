@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class PlayerManager : MonoBehaviour
 
     AudioSource[] damageSounds = new AudioSource[5];
 
+    SpriteRenderer sr;
+    Color defaultColor;
+    bool isHit = false;
+    float timeToColor = 0.09f; // Time to change color back to
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +42,9 @@ public class PlayerManager : MonoBehaviour
 
         AudioSource[] audioSources = GetComponents<AudioSource>();
 
+        sr = GetComponent<SpriteRenderer>();
+        defaultColor = sr.color;
+
         damageSounds[0] = audioSources[0];
         damageSounds[1] = audioSources[1];
         damageSounds[2] = audioSources[2];
@@ -46,6 +54,8 @@ public class PlayerManager : MonoBehaviour
 
     public void UpdateUI()
     {
+        if (PlayerHealth <= 0)
+            PlayerHealth = 0;
         healthText.text = PlayerHealth.ToString();
         healthBar.value = PlayerHealth; // Update health bar
         damageText.text = "Damage: " + PlayerDamage.ToString();
@@ -96,6 +106,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (PlayerHealth <= 0)
         {
+            roundManager.saveEnemiesKilled(); // Save the number of enemies killed before player death
             return true; // Player is dead
         }
         return false; // Player is alive
@@ -105,10 +116,23 @@ public class PlayerManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            if (!isHit)
+            {
+                isHit = true;
+                StartCoroutine(SwitchColor());
+            }
             int RandomSound = Random.Range(0, damageSounds.Length);
             damageSounds[RandomSound].Play(); // Play random damage sound
             PlayerHealth -= enemy.EnemyDoesDamage(); // Reduce player health by enemy damage
             UpdateUI(); // Update the UI after taking damage
         }
+    }
+
+    IEnumerator SwitchColor()
+    {
+        sr.color = new Color(1f, 0.7f, 0.7f);
+        yield return new WaitForSeconds(timeToColor);
+        sr.color = defaultColor;
+        isHit = false;
     }
 }

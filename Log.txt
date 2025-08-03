@@ -39,11 +39,21 @@ Updates controls page with a more user friendly assets instead of text
 Added Menu enemy for visual appeal
 Updated the entire games visuals with Brackleys 2D asset pack
 Added all audio for now, mostly finalised the game, some tweaks needed and still plenty of time left
-Offically chose the name "Loop of the Dead"
+Officially chose the name "Loop of the Dead"
 Fixed audio for player death / game over
 Added audio for enemy hit & enemy death
 Fully integrated a pause menu into the game allowing for pause, resume, restart and main menu
 
 Day 5 (Sunday):
+Touched as little code as possible today as to not risk breaking anything
+Edited the games page theme to match the game a little more
+Zoomed camera out for a bigger game screen
+Added a hit marker which flashes the players colour red for a few frames
+Added more enemies per level as it's a game jam and they should be fun
+Added a "Enemies killed" stat as it's probably the most likely
+Finally added a check to stop the players health going below zero (annoyed me, but forgot about it every time)
+Updated the controls page to include pause button
+Updated to allow esc for exiting Menus
+Uploaded the final builds (Browser, Windows & Linux) at 11:30am, playtested my game for final bugs and halted all production 
 
 

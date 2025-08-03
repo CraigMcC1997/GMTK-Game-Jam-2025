@@ -1,8 +1,4 @@
 TODO:
-Pause menu
-Fix audio for player death / game over
-Add audio for enemy hit
-Add audio for enemy death
 Maybe add some simple background audio
 
 Improvement:

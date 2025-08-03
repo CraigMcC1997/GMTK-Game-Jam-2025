@@ -766,7 +766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &377756546
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1088,7 +1088,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.09
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3118,12 +3118,24 @@ PrefabInstance:
       value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 7013788358904250948, guid: 6ee9591848fa54f1c892b5fb991855ef, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2224
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788358904250948, guid: 6ee9591848fa54f1c892b5fb991855ef, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2054453
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788358904250948, guid: 6ee9591848fa54f1c892b5fb991855ef, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2224
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013788358904250948, guid: 6ee9591848fa54f1c892b5fb991855ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: -0.012224
       objectReference: {fileID: 0}
     - target: {fileID: 7013788358904250948, guid: 6ee9591848fa54f1c892b5fb991855ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47
+      value: 0.56657
       objectReference: {fileID: 0}
     - target: {fileID: 7013788358904250948, guid: 6ee9591848fa54f1c892b5fb991855ef, type: 3}
       propertyPath: m_LocalPosition.z

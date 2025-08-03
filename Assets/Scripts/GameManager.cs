@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO: should be a get function
         if (playerManager.CheckPlayerDeath() && gameOverAudio)
         {
             gameOverAudio = false; // Prevent multiple game over triggers

@@ -33,6 +33,7 @@ public class PlayGameManager : MonoBehaviour
         PlayerPrefs.SetInt("HighestSpeed", 5);
         PlayerPrefs.SetInt("HighestRound", 1);
         PlayerPrefs.SetInt("CurrentRound", 0);
+        PlayerPrefs.SetInt("EnemiesKilled", 0);
         PlayerPrefs.Save(); // Ensure all changes are saved
     }
 

@@ -5,11 +5,8 @@ using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
-    public TMP_Text gameOverText;
-    public TMP_Text highestHealthText;
-    public TMP_Text highestDamageText;
-    public TMP_Text highestSpeedText;
-    public TMP_Text highestRoundText;
+    public TMP_Text gameOverText, highestHealthText, highestDamageText,
+    highestSpeedText, highestRoundText, enemiesKilledText;
 
     public Button restartButton;
 
@@ -35,11 +32,13 @@ public class GameOverManager : MonoBehaviour
         int highestDamage = PlayerPrefs.GetInt("PlayerDamage", 10);
         int highestSpeed = PlayerPrefs.GetInt("PlayerSpeed", 5);
         int highestRound = PlayerPrefs.GetInt("HighestRound", 1);
+        int enemiesKilled = PlayerPrefs.GetInt("EnemiesKilled", 0);
 
         highestHealthText.text = "~ Highest Health: " + highestHealth.ToString();
         highestDamageText.text = "~ Highest Damage: " + highestDamage.ToString();
         highestSpeedText.text = "~ Highest Speed: " + highestSpeed.ToString();
         highestRoundText.text = "~ Highest Round: " + highestRound.ToString();
+        enemiesKilledText.text = "~ Enemies Killed: " + enemiesKilled.ToString();
     }
 
     void RestartGame()
